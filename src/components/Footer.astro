@@ -1,5 +1,5 @@
 ---
-import siteData from '../data/siteData.json';
+import siteData from "../data/siteData.json";
 
 const { configuracoes } = siteData;
 const currentYear = new Date().getFullYear();
@@ -9,10 +9,17 @@ const currentYear = new Date().getFullYear();
   <div class="container footer-container grid">
     <div class="footer-brand">
       <a href="#" class="logo-box">
-        <img src="/assets/images/LOGO-BRANCA.png" alt="Top Vistorias Logo" class="logo-img" width="200" height="60" />
+        <img
+          src="/assets/images/LOGO-BRANCA.webp"
+          alt="Top Vistorias Logo"
+          class="logo-img"
+          width="240"
+          height="auto"
+        />
       </a>
       <p class="brand-desc">
-        Garantindo transparência e segurança absoluta para o mercado de compra e venda de veículos usados e seminovos em Londrina - PR.
+        Garantindo transparência e segurança absoluta para o mercado de compra e
+        venda de veículos usados e seminovos em Londrina - PR.
       </p>
     </div>
 
@@ -29,7 +36,9 @@ const currentYear = new Date().getFullYear();
     <div class="footer-legal">
       <h4>Informações Legais</h4>
       <p class="franchise-notice">
-        {configuracoes.empresa_nome} é uma franquia autorizada da rede nacional Top Vistorias. Todos os laudos são emitidos em conformidade com as diretrizes e resoluções vigentes.
+        {configuracoes.empresa_nome} é uma franquia autorizada da rede nacional Top
+        Vistorias. Todos os laudos são emitidos em conformidade com as diretrizes
+        e resoluções vigentes.
       </p>
     </div>
   </div>
@@ -37,10 +46,15 @@ const currentYear = new Date().getFullYear();
   <div class="footer-bottom">
     <div class="container bottom-container">
       <p class="copyright">
-        &copy; {currentYear} {configuracoes.empresa_nome}. Todos os direitos reservados.
+        &copy; {currentYear}
+        {configuracoes.empresa_nome}. Todos os direitos reservados.
       </p>
       <div class="developer-credit">
-        Desenvolvido por <a href="https://netcidade.com.br" target="_blank" rel="noopener noreferrer">Netcidade</a>
+        Desenvolvido por <a
+          href="https://netcidade.com"
+          target="_blank"
+          rel="noopener noreferrer">Netcidade</a
+        >
       </div>
     </div>
   </div>
@@ -90,7 +104,8 @@ const currentYear = new Date().getFullYear();
     max-width: 320px;
   }
 
-  .footer-links h4, .footer-legal h4 {
+  .footer-links h4,
+  .footer-legal h4 {
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-white);
