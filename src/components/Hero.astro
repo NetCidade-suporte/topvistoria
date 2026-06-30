@@ -10,7 +10,7 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
   <div class="hero-bg-overlay"></div>
   
   <div class="container hero-container">
-    <div class="hero-content-wrapper glass-card">
+    <div class="hero-content">
       <span class="badge-top">Vistoria Cautelar Profissional</span>
       <h1 class="hero-title" set:html={hero.titulo}></h1>
       <p class="hero-subtitle">{hero.subtitulo}</p>
@@ -63,7 +63,7 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
     align-items: center;
     overflow: hidden;
     background-image: 
-      linear-gradient(rgba(8, 15, 31, 0.72) 0%, rgba(8, 15, 31, 0.85) 100%), 
+      linear-gradient(rgba(8, 15, 31, 0.76) 0%, rgba(8, 15, 31, 0.88) 100%), 
       url("/assets/images/toplondrina-hero.webp");
     background-repeat: no-repeat;
     background-position: center center;
@@ -78,7 +78,7 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
     width: 100%;
     height: 100%;
     background-image: 
-      radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
       linear-gradient(rgba(255, 255, 255, 0.003) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.003) 1px, transparent 1px);
     background-size: 100% 100%, 40px 40px, 40px 40px;
@@ -90,32 +90,28 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
     position: relative;
     z-index: 2;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
 
-  .hero-content-wrapper {
+  .hero-content {
     width: 100%;
-    max-width: 900px;
-    padding: 60px 48px;
+    max-width: 800px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: rgba(8, 15, 31, 0.65) !important;
-    border: 1px solid rgba(255, 255, 255, 0.07) !important;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(255, 255, 255, 0.01) !important;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px 0;
   }
 
   .hero-title {
-    font-size: 3.6rem;
+    font-size: 3.8rem;
     font-weight: 800;
     color: var(--text-white);
     line-height: 1.15;
     margin-bottom: 24px;
     letter-spacing: -1.5px;
-    max-width: 800px;
+    text-align: left;
   }
 
   .hero-title :global(strong) {
@@ -126,11 +122,12 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     color: #cbd5e1;
-    line-height: 1.6;
+    line-height: 1.65;
     margin-bottom: 40px;
-    max-width: 700px;
+    max-width: 680px;
+    text-align: left;
   }
 
   .hero-actions {
@@ -138,7 +135,7 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
     gap: 20px;
     margin-bottom: 48px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .hero-btn {
@@ -151,8 +148,8 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
     display: flex;
     gap: 32px;
     flex-wrap: wrap;
-    justify-content: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    justify-content: flex-start;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 32px;
     width: 100%;
   }
@@ -178,30 +175,40 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
   }
 
   /* Responsividade */
+  @media (max-width: 992px) {
+    .hero-title {
+      font-size: 3rem;
+    }
+  }
+
   @media (max-width: 768px) {
     .hero-section {
-      padding: 120px 0 80px 0;
-      background-attachment: scroll; /* Desativa parallax em mobile para melhor performance */
+      padding: 140px 0 80px 0;
+      background-attachment: scroll;
     }
 
-    .hero-content-wrapper {
-      padding: 40px 24px;
+    .hero-content {
+      align-items: center;
+      text-align: center;
     }
 
     .hero-title {
       font-size: 2.2rem;
       letter-spacing: -0.5px;
+      text-align: center;
     }
 
     .hero-subtitle {
       font-size: 1.05rem;
       margin-bottom: 30px;
+      text-align: center;
     }
 
     .hero-actions {
       flex-direction: column;
       gap: 12px;
       width: 100%;
+      justify-content: center;
     }
 
     .hero-btn {
@@ -212,6 +219,7 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
       gap: 20px;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
   }
 </style>
