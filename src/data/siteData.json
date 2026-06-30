@@ -1,0 +1,107 @@
+{
+  "configuracoes": {
+    "empresa_nome": "Top Vistorias Londrina",
+    "empresa_tagline": "Líder em Vistorias Veiculares e Laudos Cautelares em Londrina",
+    "empresa_whatsapp": "5543988702525",
+    "empresa_whatsapp_formatado": "(43) 98870-2525",
+    "empresa_telefone": "(43) 98870-2525",
+    "empresa_email": "topvistoriaslondrina@gmail.com",
+    "empresa_endereco": "Rua Adhemar Pereira de Barros, 630 - Sala 1 - Bela Suíça, Londrina - PR",
+    "empresa_cep": "86050-190",
+    "empresa_cidade": "Londrina",
+    "empresa_uf": "PR",
+    "empresa_latitude": "-23.3347781",
+    "empresa_longitude": "-51.1630195",
+    "horario_atendimento": "Segunda a Sexta: 08h às 18h | Sábados: 08h às 12h",
+    "gtm_id": "GTM-W4F9CKBC",
+    "meta_descricao": "Evite dores de cabeça ao comprar um carro usado. Faça sua Vistoria Cautelar na Top Vistorias Londrina. Análise estrutural completa, histórico de leilão/sinistro e autenticidade de motor e chassi.",
+    "url_google_maps": "https://www.google.com/maps/place/Top+Vistorias+Londrina/@-23.3347781,-51.1630195,17z/data=!3m1!1e3!4m15!1m8!3m7!1s0x94eb436412a8b165:0x9ba91b156c81dd22!2sTop+Vistorias+Londrina!8m2!3d-23.3347781!4d-51.1630195!10e5!16s%2Fg%2F11hbfj523v!3m5!1s0x94eb436412a8b165:0x9ba91b156c81dd22!8m2!3d-23.3347781!4d-51.1630195!16s%2Fg%2F11hbfj523v!18m1!1e1?entry=ttu"
+  },
+  "secoes": {
+    "hero": {
+      "titulo": "Quem compra carro usado sem <strong>Vistoria Cautelar</strong> compra a dúvida de brinde.",
+      "subtitulo": "Garanta a segurança e a transparência da sua negociação. Avaliamos a estrutura, autenticidade e o histórico completo do veículo em Londrina - PR.",
+      "cta_texto": "Agendar Vistoria Agora"
+    },
+    "servicos": {
+      "tagline": "O Que Analisamos",
+      "titulo": "Raio-X Completo do Veículo",
+      "subtitulo": "Nossa Vistoria Cautelar avalia minuciosamente cada detalhe para certificar a real procedência do automóvel."
+    },
+    "beneficios": {
+      "tagline": "Por Que Fazer?",
+      "titulo": "Vantagens da Vistoria Cautelar",
+      "subtitulo": "Mais do que um laudo, a certeza de fechar um bom negócio com segurança e economia."
+    },
+    "faq": {
+      "tagline": "Dúvidas Frequentes",
+      "titulo": "Tire suas Dúvidas"
+    }
+  },
+  "pilares_vistoria": [
+    {
+      "id": "estrutural",
+      "numero": "01",
+      "titulo": "Análise Estrutural",
+      "descricao": "Avaliação minuciosa das longarinas, painel frontal, traseiro, colunas, teto e assoalho para identificar se o carro já sofreu colisões graves, cortes ou reparos estruturais que afetam a segurança.",
+      "imagem_slug": "analise-estrutural",
+      "tags": ["Longarinas", "Colunas", "Teto", "Assoalho"]
+    },
+    {
+      "id": "autenticidade",
+      "numero": "02",
+      "titulo": "Identificação e Autenticidade",
+      "descricao": "Verificação rigorosa dos pontos de marcação de fábrica, como o número do chassi, motor, câmbio, vidros e etiquetas de identificação, garantindo que o veículo não é clonado ou adulterado.",
+      "imagem_slug": "autenticidade",
+      "tags": ["Chassi", "Motor", "Vidros", "Etiquetas"]
+    },
+    {
+      "id": "historico",
+      "numero": "03",
+      "titulo": "Histórico Completo",
+      "descricao": "Consulta integrada aos principais órgãos de trânsito e bancos de dados do país para verificar o histórico de leilão, sinistros (batidas anteriores), roubo e furto ativos.",
+      "imagem_slug": "historico",
+      "tags": ["Leilão", "Sinistro", "Roubo/Furto", "Débitos"]
+    },
+    {
+      "id": "pintura",
+      "numero": "04",
+      "titulo": "Pintura e Funilaria",
+      "descricao": "Utilização de medidores de espessura de camada de tinta de alta precisão para detectar repinturas ocultas, reparos e uso excessivo de massa plástica.",
+      "imagem_slug": "pintura-funilaria",
+      "tags": ["Espessura de Tinta", "Repintura", "Massa Plástica", "Batidas"]
+    }
+  ],
+  "beneficios": [
+    {
+      "titulo": "Total Transparência",
+      "descricao": "Transparência total para a negociação de compra e venda, evitando surpresas desagradáveis."
+    },
+    {
+      "titulo": "Valorização do Veículo",
+      "descricao": "Um veículo com laudo cautelar aprovado e certificado é muito mais valorizado na hora da revenda."
+    },
+    {
+      "titulo": "Certeza de Bom Negócio",
+      "descricao": "Compre ou venda com a certeza absoluta de que o preço cobrado condiz com o real estado do carro."
+    }
+  ],
+  "faq": [
+    {
+      "pergunta": "O que é a Vistoria Cautelar Veicular?",
+      "resposta": "A vistoria cautelar é uma análise voluntária e minuciosa realizada antes da compra de um carro. Ela avalia a estrutura do veículo (longarinas, colunas, teto), a autenticidade das marcações (chassi, motor, vidros) e faz um levantamento completo do histórico do carro (leilão, sinistros, roubos e débitos). Isso garante a procedência e evita que você compre um carro clonado ou com problemas estruturais graves."
+    },
+    {
+      "pergunta": "Qual a diferença entre Vistoria Cautelar e Vistoria de Transferência?",
+      "resposta": "A Vistoria de Transferência é obrigatória por lei e exigida pelo DETRAN para emitir o novo documento do carro ao transferir a propriedade. Ela verifica apenas os itens básicos de segurança e a identificação do chassi/motor. Já a Vistoria Cautelar é opcional, muito mais detalhada, e foca na segurança do comprador, analisando a estrutura completa, pintura (funilaria) e o histórico de leilão ou sinistros que a vistoria do DETRAN não cobre."
+    },
+    {
+      "pergunta": "O que pode reprovar um carro na Vistoria Cautelar?",
+      "resposta": "Um veículo pode ser reprovado ou ter apontamentos graves na cautelar se apresentar adulterações na numeração do chassi ou motor, danos nas colunas ou longarinas por colisões graves, reparos estruturais malfeitos ou histórico de sinistro de grande monta. O laudo cautelar indicará o status final do veículo para que a negociação seja transparente."
+    },
+    {
+      "pergunta": "Como a vistoria cautelar ajuda a valorizar meu carro na venda?",
+      "resposta": "Ter um laudo de Vistoria Cautelar Aprovado mostra para o comprador que você cuida do carro e garante que ele nunca passou por leilão, sinistros ou batidas graves. Isso gera confiança imediata, reduz a margem de pechincha do comprador e agiliza o fechamento do negócio."
+    }
+  ]
+}

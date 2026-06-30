@@ -1,0 +1,161 @@
+---
+import siteData from '../data/siteData.json';
+
+const { beneficios } = siteData.secoes;
+const { beneficios: lista_beneficios } = siteData;
+const { empresa_whatsapp } = siteData.configuracoes;
+const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostaria+de+saber+mais+informa%C3%A7%C3%B5es+e+agendar+uma+Vistoria+Cautelar.`;
+---
+
+<section class="beneficios-section" id="beneficios">
+  <div class="container">
+    <div class="text-center section-header">
+      <span class="badge-top">{beneficios.tagline}</span>
+      <h2 class="section-title" set:html={beneficios.titulo}></h2>
+      <p class="section-sub">{beneficios.subtitulo}</p>
+    </div>
+
+    <div class="beneficios-grid grid">
+      {lista_beneficios.map((beneficio, index) => (
+        <div class="beneficio-card glass-card">
+          <div class="beneficio-icon-outer">
+            {index === 0 && (
+              <svg class="beneficio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            )}
+            {index === 1 && (
+              <svg class="beneficio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            )}
+            {index === 2 && (
+              <svg class="beneficio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            )}
+          </div>
+          <h3 class="beneficio-title">{beneficio.titulo}</h3>
+          <p class="beneficio-desc">{beneficio.descricao}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Box Centralizada -->
+    <div class="beneficios-cta glass-card text-center">
+      <h3>Pronto para fechar negócio com segurança?</h3>
+      <p>Evite prejuízos e dores de cabeça comprando um carro sem procedência.</p>
+      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+        <span>Falar com Especialista</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .beneficios-section {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--bg-primary);
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+  }
+
+  .beneficios-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 64px;
+  }
+
+  .beneficio-card {
+    padding: 40px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .beneficio-icon-outer {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent-green);
+    margin-bottom: 24px;
+    transition: var(--transition-normal);
+  }
+
+  .beneficio-card:hover .beneficio-icon-outer {
+    background-color: var(--color-accent-green);
+    color: var(--text-white);
+    transform: rotateY(180deg);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+  }
+
+  .beneficio-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .beneficio-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 12px;
+  }
+
+  .beneficio-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Bloco de CTA inferior */
+  .beneficios-cta {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px;
+    background: radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.05) 0%, transparent 50%), var(--bg-card);
+  }
+
+  .beneficios-cta h3 {
+    font-size: 1.8rem;
+    color: var(--text-white);
+    margin-bottom: 8px;
+  }
+
+  .beneficios-cta p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-size: 1.05rem;
+  }
+
+  /* Responsividade */
+  @media (max-width: 992px) {
+    .beneficios-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .beneficios-cta {
+      padding: 32px 24px;
+    }
+
+    .beneficios-cta h3 {
+      font-size: 1.4rem;
+    }
+
+    .beneficios-cta p {
+      font-size: 0.95rem;
+    }
+  }
+</style>

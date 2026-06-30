@@ -1,0 +1,184 @@
+---
+import siteData from '../data/siteData.json';
+
+const { configuracoes } = siteData;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="main-footer">
+  <div class="container footer-container grid">
+    <div class="footer-brand">
+      <a href="#" class="logo-box">
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#122854" stroke="#f59e0b" stroke-width="4"/>
+          <path d="M30 45 L50 25 L70 45" stroke="#f59e0b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M50 25 L50 75" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+          <path d="M35 60 L50 45 L65 60" stroke="#10b981" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="text-top">TOP</span>
+          <span class="text-sub">VISTORIAS</span>
+        </div>
+      </a>
+      <p class="brand-desc">
+        Garantindo transparência e segurança absoluta para o mercado de compra e venda de veículos usados e seminovos em Londrina - PR.
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Serviço</h4>
+      <ul>
+        <li><a href="#servicos">Vistoria Cautelar</a></li>
+        <li><a href="#beneficios">Vantagens</a></li>
+        <li><a href="#faq">Dúvidas Frequentes</a></li>
+        <li><a href="#localizacao">Onde Estamos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-legal">
+      <h4>Informações Legais</h4>
+      <p class="franchise-notice">
+        {configuracoes.empresa_nome} é uma franquia autorizada da rede nacional Top Vistorias. Todos os laudos são emitidos em conformidade com as diretrizes e resoluções vigentes.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container bottom-container">
+      <p class="copyright">
+        &copy; {currentYear} {configuracoes.empresa_nome}. Todos os direitos reservados.
+      </p>
+      <div class="developer-credit">
+        Desenvolvido por <a href="https://netcidade.com.br" target="_blank" rel="noopener noreferrer">Netcidade</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .main-footer {
+    background-color: #050a14;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 80px 0 0 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-container {
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .logo-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .text-top {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--text-white);
+    letter-spacing: 2px;
+  }
+
+  .text-sub {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-accent-yellow);
+    letter-spacing: 3px;
+    margin-top: 1px;
+  }
+
+  .brand-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+
+  .footer-links h4, .footer-legal h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 24px;
+  }
+
+  .footer-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent-yellow);
+    padding-left: 4px;
+  }
+
+  .franchise-notice {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Rodapé Inferior */
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px 0;
+    background-color: #03060c;
+  }
+
+  .bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .developer-credit a {
+    color: var(--color-accent-yellow);
+    font-weight: 600;
+  }
+
+  .developer-credit a:hover {
+    color: var(--text-white);
+  }
+
+  /* Responsividade */
+  @media (max-width: 992px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .bottom-container {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+  }
+</style>

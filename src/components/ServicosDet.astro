@@ -1,0 +1,198 @@
+---
+import siteData from '../data/siteData.json';
+
+const { servicos } = siteData.secoes;
+const { pilares_vistoria } = siteData;
+---
+
+<section class="servicos-section" id="servicos">
+  <div class="container">
+    <div class="text-center section-header">
+      <span class="badge-top">{servicos.tagline}</span>
+      <h2 class="section-title" set:html={servicos.titulo}></h2>
+      <p class="section-sub">{servicos.subtitulo}</p>
+    </div>
+
+    <div class="servicos-grid grid">
+      {pilares_vistoria.map((pilar) => (
+        <div class="pilar-card glass-card">
+          <div class="card-header-box">
+            <span class="pilar-number">{pilar.numero}</span>
+            <div class="pilar-icon-box">
+              {pilar.id === 'estrutural' && (
+                <svg class="pilar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M8 11h8M8 15h8M8 7h8"/>
+                </svg>
+              )}
+              {pilar.id === 'autenticidade' && (
+                <svg class="pilar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zM9 7a3 3 0 0 1 6 0v3H9V7zm3 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
+                </svg>
+              )}
+              {pilar.id === 'historico' && (
+                <svg class="pilar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              )}
+              {pilar.id === 'pintura' && (
+                <svg class="pilar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              )}
+            </div>
+          </div>
+
+          <div class="pilar-content">
+            <h3 class="pilar-title">{pilar.titulo}</h3>
+            <p class="pilar-desc">{pilar.descricao}</p>
+            
+            <div class="pilar-tags">
+              {pilar.tags.map((tag) => (
+                <span class="pilar-tag-pill">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .servicos-section {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--bg-secondary);
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+  }
+
+  .servicos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .pilar-card {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .pilar-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    user-select: none;
+    transition: var(--transition-normal);
+  }
+
+  .pilar-card:hover .pilar-number {
+    color: rgba(245, 158, 11, 0.08);
+    transform: scale(1.1);
+  }
+
+  .pilar-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-sm);
+    background-color: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-secondary);
+    transition: var(--transition-normal);
+  }
+
+  .pilar-card:hover .pilar-icon-box {
+    background-color: var(--color-secondary);
+    color: var(--text-white);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+  }
+
+  .pilar-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .pilar-content {
+    z-index: 2;
+  }
+
+  .pilar-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-white);
+    transition: var(--transition-fast);
+  }
+
+  .pilar-card:hover .pilar-title {
+    color: var(--color-accent-yellow);
+  }
+
+  .pilar-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .pilar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pilar-tag-pill {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+  }
+
+  .pilar-card:hover .pilar-tag-pill {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.15);
+    color: var(--text-main);
+  }
+
+  /* Responsividade */
+  @media (max-width: 992px) {
+    .servicos-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    
+    .pilar-card {
+      padding: 30px;
+    }
+  }
+</style>

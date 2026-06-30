@@ -1,0 +1,239 @@
+---
+import siteData from '../data/siteData.json';
+
+const { hero } = siteData.secoes;
+const { empresa_whatsapp } = siteData.configuracoes;
+const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostaria+de+saber+mais+informa%C3%A7%C3%B5es+e+agendar+uma+Vistoria+Cautelar.`;
+---
+
+<section class="hero-section" id="home">
+  <!-- Efeito de brilho de fundo -->
+  <div class="hero-glow"></div>
+  
+  <div class="container hero-container grid">
+    <div class="hero-content">
+      <span class="badge-top">Vistoria Cautelar Profissional</span>
+      <h1 class="hero-title" set:html={hero.titulo}></h1>
+      <p class="hero-subtitle">{hero.subtitulo}</p>
+      
+      <div class="hero-actions">
+        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-btn">
+          <span>{hero.cta_texto}</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#servicos" class="btn btn-secondary hero-btn">Ver Detalhes</a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="trust-badges">
+        <div class="badge-item">
+          <svg class="badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span>Laudo Aprovado DETRAN</span>
+        </div>
+        <div class="badge-item">
+          <svg class="badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>Empresa Credenciada (ECV)</span>
+        </div>
+        <div class="badge-item">
+          <svg class="badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <span>Agendamento Rápido</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image-wrapper">
+      <div class="image-border-glow"></div>
+      <img 
+        src="/assets/images/hero_principal.png" 
+        alt="Vistoria Cautelar Profissional" 
+        class="hero-img" 
+        loading="eager"
+        width="600"
+        height="400"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    padding: 160px 0 100px 0;
+    overflow: hidden;
+    background-color: var(--bg-primary);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -10%;
+    right: 5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-container {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: var(--text-white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+
+  .hero-title :global(strong) {
+    color: var(--color-accent-yellow);
+    background: linear-gradient(90deg, #f59e0b, #ffba08);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 620px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .hero-btn {
+    padding: 16px 36px;
+    font-size: 1rem;
+  }
+
+  /* Trust Badges */
+  .trust-badges {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 24px;
+  }
+
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .badge-icon {
+    color: var(--color-accent-green);
+    flex-shrink: 0;
+  }
+
+  /* Imagem lateral com efeito de brilho */
+  .hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-img {
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    transition: all 0.5s ease;
+  }
+
+  .hero-image-wrapper:hover .hero-img {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+  }
+
+  .image-border-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent-yellow));
+    border-radius: calc(var(--radius-md) + 10px);
+    z-index: 1;
+    opacity: 0.2;
+    filter: blur(15px);
+    transition: opacity 0.5s ease;
+  }
+
+  .hero-image-wrapper:hover .image-border-glow {
+    opacity: 0.35;
+  }
+
+  /* Responsividade */
+  @media (max-width: 992px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 48px;
+    }
+    
+    .hero-section {
+      padding: 120px 0 60px 0;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .trust-badges {
+      justify-content: center;
+    }
+
+    .hero-img {
+      transform: none;
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .hero-image-wrapper:hover .hero-img {
+      transform: none;
+    }
+  }
+</style>

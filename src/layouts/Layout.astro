@@ -1,0 +1,137 @@
+---
+import siteData from '../data/siteData.json';
+import GoogleTagManager from '../components/GoogleTagManager.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import '../styles/global.css';
+
+const { configuracoes, faq } = siteData;
+const { 
+  title = `${configuracoes.empresa_nome} - ${configuracoes.empresa_tagline}`, 
+  description = configuracoes.meta_descricao,
+  canonical = Astro.url.href,
+} = Astro.props;
+
+const siteURL = "https://topvistoriaslondrina.com.br"; // Domínio de Londrina
+
+// Schema base para LocalBusiness
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "AutomotiveBusiness"],
+  "@id": `${siteURL}/#business`,
+  "name": configuracoes.empresa_nome,
+  "description": description,
+  "url": siteURL,
+  "telephone": `+${configuracoes.empresa_whatsapp}`,
+  "email": configuracoes.empresa_email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Adhemar Pereira de Barros, 630 - Sala 1",
+    "addressLocality": "Londrina",
+    "addressRegion": "PR",
+    "postalCode": configuracoes.empresa_cep,
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": configuracoes.empresa_latitude,
+    "longitude": configuracoes.empresa_longitude
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Londrina" },
+    { "@type": "City", "name": "Ibiporã" },
+    { "@type": "City", "name": "Cambé" }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "12:00"
+    }
+  ]
+};
+
+// Schema do FAQ dinâmico (AEO)
+const faqSchema = faq && faq.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((item) => ({
+    "@type": "Question",
+    "name": item.pergunta,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.resposta
+    }
+  }))
+} : null;
+
+const schemas = [businessSchema];
+if (faqSchema) {
+  schemas.push(faqSchema);
+}
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <GoogleTagManager />
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="https://topvistorias.com.br/wp-content/uploads/2025/01/FAVICON-150x150.png" />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph (Facebook / WhatsApp sharing) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={configuracoes.empresa_nome} />
+    <meta property="og:image" content="https://topvistorias.com.br/wp-content/uploads/2025/01/Inserir-um-titulo.png" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- GEO-targeting (Londrina - PR) -->
+    <meta name="geo.region" content={`BR-${configuracoes.empresa_uf}`} />
+    <meta name="geo.placename" content={configuracoes.empresa_cidade} />
+    <meta name="geo.position" content={`${configuracoes.empresa_latitude};${configuracoes.empresa_longitude}`} />
+    <meta name="ICBM" content={`${configuracoes.empresa_latitude}, ${configuracoes.empresa_longitude}`} />
+
+    <!-- Speakable Specification (AEO) -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hero-content", ".servicos-section", ".faq-section"]
+      }
+    </script>
+
+    <!-- LLM Description (AEO) -->
+    <meta name="llm-description" content="A Top Vistorias Londrina é uma empresa credenciada de vistoria veicular em Londrina, Paraná. Especializada em vistorias cautelares de alta precisão e procedência veicular, avaliando motor, chassi, estrutura, funilaria, espessura de tinta e histórico completo contra sinistros e leilões." />
+
+    <!-- Injeção de Schemas JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemas)} is:inline />
+  </head>
+  <body>
+    <GoogleTagManager bodyTag />
+    
+    <slot />
+    
+    <WhatsAppButton />
+  </body>
+</html>

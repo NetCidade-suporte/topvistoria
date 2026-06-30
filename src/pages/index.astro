@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServicosDet from '../components/ServicosDet.astro';
+import Beneficios from '../components/Beneficios.astro';
+import Estatisticas from '../components/Estatisticas.astro';
+import FAQ from '../components/FAQ.astro';
+import Localizacao from '../components/Localizacao.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <!-- Cabeçalho Fixo -->
+  <Header />
+
+  <!-- Conteúdo Principal -->
+  <main>
+    <!-- Seção Hero -->
+    <Hero />
+
+    <!-- Diferenciais em Números -->
+    <Estatisticas />
+
+    <!-- Detalhamento da Vistoria Cautelar -->
+    <ServicosDet />
+
+    <!-- Vantagens e Benefícios -->
+    <Beneficios />
+
+    <!-- FAQ (Dúvidas Frequentes) -->
+    <FAQ />
+
+    <!-- Onde Estamos e Contato -->
+    <Localizacao />
+  </main>
+
+  <!-- Rodapé -->
+  <Footer />
+</Layout>

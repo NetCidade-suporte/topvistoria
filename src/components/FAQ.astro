@@ -1,0 +1,135 @@
+---
+import siteData from '../data/siteData.json';
+
+const { faq } = siteData.secoes;
+const { faq: lista_faq } = siteData;
+---
+
+<section class="faq-section" id="faq">
+  <div class="container faq-container">
+    <div class="text-center section-header">
+      <span class="badge-top">{faq.tagline}</span>
+      <h2 class="section-title" set:html={faq.titulo}></h2>
+      <p class="section-sub">Tire suas principais dúvidas sobre o processo de Vistoria Cautelar.</p>
+    </div>
+
+    <div class="faq-list">
+      {lista_faq.map((item, index) => (
+        <details class="faq-item glass-card" name="faq-accordion">
+          <summary class="faq-question">
+            <span>{item.pergunta}</span>
+            <span class="faq-icon-box">
+              <svg class="faq-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="faq-answer">
+            <p>{item.resposta}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--bg-secondary);
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .faq-item {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    transition: var(--transition-normal);
+  }
+
+  /* summary oculta o triângulo padrão do browser */
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-white);
+    cursor: pointer;
+    user-select: none;
+    list-style: none; /* Webkit standard */
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none; /* Safari standard */
+  }
+
+  .faq-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-normal);
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .faq-arrow-icon {
+    transition: transform 0.3s ease;
+  }
+
+  /* Estilos quando aberto */
+  .faq-item[open] {
+    border-color: rgba(59, 130, 246, 0.25);
+    background-color: rgba(21, 34, 68, 0.6);
+  }
+
+  .faq-item[open] .faq-question {
+    color: var(--color-accent-yellow);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .faq-item[open] .faq-arrow-icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item[open] .faq-icon-box {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--color-accent-yellow);
+  }
+
+  .faq-answer {
+    padding: 24px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    background-color: rgba(8, 15, 31, 0.2);
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .faq-question {
+      font-size: 1rem;
+      padding: 18px 20px;
+    }
+    .faq-answer {
+      padding: 18px 20px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
