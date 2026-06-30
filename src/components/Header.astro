@@ -8,16 +8,9 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
 <header class="main-header">
   <div class="container header-container">
     <a href="#" class="logo-box" aria-label="Top Vistorias Home">
-      <!-- SVG Logo Estilizada e Premium -->
-      <svg class="logo-icon" width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="48" fill="#122854" stroke="#f59e0b" stroke-width="4"/>
-        <path d="M30 45 L50 25 L70 45" stroke="#f59e0b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M50 25 L50 75" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
-        <path d="M35 60 L50 45 L65 60" stroke="#10b981" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="logo-text">
-        <span class="text-top">TOP</span>
-        <span class="text-sub">VISTORIAS</span>
+      <div class="logo-wrapper">
+        <img src="/assets/images/logo.webp" alt="Top Vistorias Logo" class="logo-img" width="140" height="42" />
+        <span class="logo-city">Londrina</span>
       </div>
     </a>
 
@@ -66,34 +59,32 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
     gap: 12px;
   }
 
-  .logo-icon {
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-  }
-
-  .logo-box:hover .logo-icon {
-    transform: rotate(10deg) scale(1.05);
-  }
-
-  .logo-text {
+  .logo-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     line-height: 1;
   }
 
-  .text-top {
-    font-size: 1.6rem;
-    font-weight: 900;
-    color: var(--text-white);
-    letter-spacing: 2px;
+  .logo-img {
+    height: 38px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
   }
 
-  .text-sub {
-    font-size: 0.75rem;
+  .logo-box:hover .logo-img {
+    transform: scale(1.03);
+  }
+
+  .logo-city {
+    font-size: 0.62rem;
     font-weight: 700;
     color: var(--color-accent-yellow);
-    letter-spacing: 4px;
-    margin-top: 1px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: 2px;
+    padding-left: 2px;
   }
 
   .desktop-nav {
@@ -155,12 +146,12 @@ const whatsappLink = `https://wa.me/${empresa_whatsapp}?text=Ol%C3%A1%21+Gostari
     .desktop-nav {
       display: none; /* Em mobile, foca no botão direto do WhatsApp */
     }
-    .text-top {
-      font-size: 1.3rem;
+    .logo-img {
+      height: 32px;
     }
-    .text-sub {
-      font-size: 0.65rem;
-      letter-spacing: 3px;
+    .logo-city {
+      font-size: 0.55rem;
+      letter-spacing: 4px;
     }
   }
 </style>

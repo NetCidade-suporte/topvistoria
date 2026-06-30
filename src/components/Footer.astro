@@ -9,15 +9,9 @@ const currentYear = new Date().getFullYear();
   <div class="container footer-container grid">
     <div class="footer-brand">
       <a href="#" class="logo-box">
-        <svg class="logo-icon" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#122854" stroke="#f59e0b" stroke-width="4"/>
-          <path d="M30 45 L50 25 L70 45" stroke="#f59e0b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M50 25 L50 75" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
-          <path d="M35 60 L50 45 L65 60" stroke="#10b981" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <div class="logo-text">
-          <span class="text-top">TOP</span>
-          <span class="text-sub">VISTORIAS</span>
+        <div class="logo-wrapper">
+          <img src="/assets/images/logo.webp" alt="Top Vistorias Logo" class="logo-img" width="130" height="38" />
+          <span class="logo-city">Londrina</span>
         </div>
       </a>
       <p class="brand-desc">
@@ -79,28 +73,34 @@ const currentYear = new Date().getFullYear();
   .logo-box {
     display: flex;
     align-items: center;
-    gap: 12px;
   }
 
-  .logo-text {
+  .logo-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     line-height: 1;
   }
 
-  .text-top {
-    font-size: 1.4rem;
-    font-weight: 900;
-    color: var(--text-white);
-    letter-spacing: 2px;
+  .logo-img {
+    height: 34px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
   }
 
-  .text-sub {
-    font-size: 0.7rem;
+  .logo-box:hover .logo-img {
+    transform: scale(1.03);
+  }
+
+  .logo-city {
+    font-size: 0.58rem;
     font-weight: 700;
     color: var(--color-accent-yellow);
-    letter-spacing: 3px;
-    margin-top: 1px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: 2px;
+    padding-left: 2px;
   }
 
   .brand-desc {
