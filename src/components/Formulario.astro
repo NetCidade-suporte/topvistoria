@@ -1,0 +1,220 @@
+---
+import siteData from '../data/siteData.json';
+
+const { empresa_whatsapp } = siteData.configuracoes;
+---
+
+<section class="formulario-section" id="contato-rapido">
+  <div class="container">
+    <div class="form-card glass-card">
+      <div class="text-center form-header">
+        <span class="badge-top">Agendamento Online</span>
+        <h2 class="form-title">Iniciar Meu <strong>Agendamento</strong></h2>
+        <p class="form-sub">
+          Preencha os dados abaixo para ser direcionado ao nosso atendimento no WhatsApp e garantir o seu horário.
+        </p>
+      </div>
+
+      <form id="whatsapp-form" class="lead-form">
+        <div class="input-group">
+          <label for="form-name">Nome Completo</label>
+          <input 
+            type="text" 
+            id="form-name" 
+            placeholder="Digite seu nome completo" 
+            required 
+            autocomplete="name"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="form-email">E-mail</label>
+          <input 
+            type="email" 
+            id="form-email" 
+            placeholder="Digite seu e-mail de contato" 
+            required 
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="form-car">Qual carro você deseja vistoriar?</label>
+          <input 
+            type="text" 
+            id="form-car" 
+            placeholder="Ex: Marca, Modelo e Ano (ex: Corolla 2021)" 
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-whatsapp submit-btn">
+          <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.37 5.054L2 22l5.132-1.347a9.936 9.936 0 0 0 4.877 1.28h.005c5.505 0 9.989-4.478 9.99-9.984A10.015 10.015 0 0 0 12.012 2zm5.72 14.158c-.246.693-1.424 1.306-1.95 1.36-.492.052-.98.243-3.137-.624-2.6-.967-4.244-3.626-4.374-3.797-.13-.172-1.056-1.403-1.056-2.678 0-1.275.666-1.902.903-2.148.236-.245.513-.306.684-.306.17 0 .341.002.49.01.15.007.35-.027.549.453.2.48.682 1.663.742 1.785.06.121.099.263.018.423-.08.16-.12.26-.24.4-.12.14-.252.312-.36.419-.12.12-.244.251-.106.49.138.238.614 1.011 1.317 1.637.904.805 1.66 1.052 1.897 1.171.237.119.375.101.514-.06.14-.16.598-.697.757-.936.16-.239.319-.2.537-.12.219.08 1.385.653 1.624.772.239.119.398.178.458.28.06.1.06.582-.186 1.275z"/>
+          </svg>
+          <span>Confirmar e Chamar no WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Passando o número de WhatsApp via atributo data para o script do lado cliente -->
+<div id="whatsapp-config" data-phone={empresa_whatsapp} style="display:none;"></div>
+
+<style>
+  .formulario-section {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--bg-primary);
+    background-image: 
+      radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 90% 20%, rgba(245, 158, 11, 0.03) 0%, transparent 40%);
+  }
+
+  .form-card {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 48px;
+    background: rgba(13, 23, 46, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .form-header {
+    margin-bottom: 40px;
+  }
+
+  .form-title {
+    font-size: 2.2rem;
+    color: var(--text-white);
+    margin-bottom: 12px;
+  }
+
+  .form-title strong {
+    color: var(--color-accent-yellow);
+    background: linear-gradient(90deg, #f59e0b, #ffba08);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .form-sub {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .input-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    letter-spacing: 0.5px;
+  }
+
+  .input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    background-color: rgba(8, 15, 31, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--text-main);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .input-group input:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    background-color: rgba(8, 15, 31, 0.85);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+  }
+
+  .input-group input::placeholder {
+    color: #64748b;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 18px 36px;
+    font-size: 1.05rem;
+    margin-top: 12px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .formulario-section {
+      padding: 80px 0;
+    }
+
+    .form-card {
+      padding: 40px 24px;
+    }
+
+    .form-title {
+      font-size: 1.8rem;
+    }
+
+    .form-sub {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('whatsapp-form') as HTMLFormElement;
+  const configDiv = document.getElementById('whatsapp-config');
+  
+  if (form && configDiv) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const phone = configDiv.getAttribute('data-phone') || '';
+      
+      const nameInput = document.getElementById('form-name') as HTMLInputElement;
+      const emailInput = document.getElementById('form-email') as HTMLInputElement;
+      const carInput = document.getElementById('form-car') as HTMLInputElement;
+      
+      if (nameInput && emailInput && carInput) {
+        const nome = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const carro = carInput.value.trim();
+        
+        // Monta a mensagem para o WhatsApp com formatação legível
+        const mensagem = `Olá! Gostaria de agendar uma Vistoria Cautelar.
+
+📋 *Dados do Agendamento:*
+• *Nome:* ${nome}
+• *E-mail:* ${email}
+• *Veículo:* ${carro}`;
+
+        const encodedMessage = encodeURIComponent(mensagem);
+        const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+        
+        // Redireciona para o WhatsApp em uma nova aba
+        window.open(whatsappUrl, '_blank');
+      }
+    });
+  }
+</script>
