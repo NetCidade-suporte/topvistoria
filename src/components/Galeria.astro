@@ -1,0 +1,161 @@
+---
+const fotos = [
+  {
+    src: "/assets/images/toplondrina-05.webp",
+    alt: "Infraestrutura da Unidade Top Vistorias Londrina",
+    legenda: "Estrutura Moderna e Climatizada"
+  },
+  {
+    src: "/assets/images/toplondrina-06.webp",
+    alt: "Pátio de Inspeção Veicular em Londrina",
+    legenda: "Pátio Amplo para Vistorias"
+  },
+  {
+    src: "/assets/images/toplondrina-07.webp",
+    alt: "Vistoria Cautelar Técnica de Suspensão e Chassi",
+    legenda: "Equipamentos de Inspeção Profissional"
+  },
+  {
+    src: "/assets/images/toplondrina-09.webp",
+    alt: "Atendimento e Recepção de Clientes",
+    legenda: "Atendimento Rápido e Confortável"
+  }
+];
+---
+
+<section class="galeria-section" id="estrutura">
+  <div class="container">
+    <div class="text-center section-header">
+      <span class="badge-top">Nossa Unidade</span>
+      <h2 class="section-title">Infraestrutura <strong>Top Vistorias</strong> Londrina</h2>
+      <p class="section-sub">
+        Conheça o nosso espaço físico e as instalações preparadas para realizar o laudo cautelar do seu carro com total segurança e conforto.
+      </p>
+    </div>
+
+    <div class="galeria-grid">
+      {fotos.map((foto, index) => (
+        <div class="galeria-item glass-card reveal">
+          <div class="img-zoom-container">
+            <img 
+              src={foto.src} 
+              alt={foto.alt} 
+              class="galeria-img" 
+              loading="lazy" 
+              width="400"
+              height="300"
+            />
+            <div class="overlay-gradient"></div>
+            <div class="galeria-caption">
+              <span class="caption-number">0{index + 1}</span>
+              <h3>{foto.legenda}</h3>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .galeria-section {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--bg-primary);
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 60%);
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+  }
+
+  .galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .galeria-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    padding: 8px; /* Borda estilizada do glassmorphism */
+  }
+
+  .img-zoom-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: calc(var(--radius-md) - 6px);
+    width: 100%;
+    height: 320px;
+  }
+
+  .galeria-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(8, 15, 31, 0.85) 0%, rgba(8, 15, 31, 0.3) 50%, transparent 100%);
+    z-index: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  .galeria-caption {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .caption-number {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--color-accent-yellow);
+    letter-spacing: 2px;
+  }
+
+  .galeria-caption h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-white);
+  }
+
+  /* Efeitos de Hover */
+  .galeria-item:hover .galeria-img {
+    transform: scale(1.08);
+  }
+
+  .galeria-item:hover .galeria-caption {
+    transform: translateY(-4px);
+  }
+
+  .galeria-item:hover .overlay-gradient {
+    background: linear-gradient(to top, rgba(8, 15, 31, 0.95) 0%, rgba(8, 15, 31, 0.4) 50%, transparent 100%);
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .galeria-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    
+    .img-zoom-container {
+      height: 240px;
+    }
+  }
+</style>

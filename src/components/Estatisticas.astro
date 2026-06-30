@@ -9,7 +9,7 @@ const { empresa_nome } = siteData.configuracoes;
   <div class="grid-overlay"></div>
   
   <div class="container estatisticas-container grid">
-    <div class="estatistica-item">
+    <div class="estatistica-item glass-card stat-card">
       <div class="number-box">
         <span class="stat-number">17</span>
         <span class="plus-sign">+</span>
@@ -20,7 +20,7 @@ const { empresa_nome } = siteData.configuracoes;
       </div>
     </div>
 
-    <div class="estatistica-item">
+    <div class="estatistica-item glass-card stat-card">
       <div class="number-box">
         <span class="stat-number">100</span>
         <span class="plus-sign">+</span>
@@ -31,7 +31,7 @@ const { empresa_nome } = siteData.configuracoes;
       </div>
     </div>
 
-    <div class="estatistica-item">
+    <div class="estatistica-item glass-card stat-card">
       <div class="number-box">
         <span class="stat-number">200</span>
         <span class="stat-letter">K+</span>
@@ -42,7 +42,7 @@ const { empresa_nome } = siteData.configuracoes;
       </div>
     </div>
 
-    <div class="estatistica-item">
+    <div class="estatistica-item glass-card stat-card">
       <div class="number-box">
         <span class="stat-number">99.5</span>
         <span class="stat-letter">%</span>
@@ -149,5 +149,20 @@ const { empresa_nome } = siteData.configuracoes;
     .stat-number {
       font-size: 3rem;
     }
+  }
+
+  .stat-card {
+    padding: 30px 20px;
+    background: rgba(21, 34, 68, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    border-radius: var(--radius-md);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .stat-card:hover {
+    background: rgba(21, 34, 68, 0.3) !important;
+    border-color: rgba(59, 130, 246, 0.25) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.1);
   }
 </style>
